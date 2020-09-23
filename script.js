@@ -1,8 +1,9 @@
 const cards = document.querySelectorAll('.memory-card');
 
-let hasFlippedCard = false;
-let lockBoard = false;
-let firstCard, secondCard;
+var hasFlippedCard = false;
+var lockBoard = false;
+var firstCard, secondCard;
+
 
 function flipCard() {
   if (lockBoard) return;
@@ -52,9 +53,21 @@ function resetBoard() {
 
 (function shuffle() {
   cards.forEach(card => {
-    let randomPos = Math.floor(Math.random() * 12);
+    var randomPos = Math.floor(Math.random() * 12);
     card.style.order = randomPos;
   });
 })();
 
 cards.forEach(card => card.addEventListener('click', flipCard));  
+
+
+// function playAgain() {
+//     var cards = document.getElementsByClassName('memory-card');
+//     for (var i = 0; i < cards.length; i++) {
+//         cards[i].classList.remove('flipped');
+//     }
+//     playAgainBtn.style.display = 'none';
+//     timerStart = 0;
+//     startTime = null;
+//     shuffleBoard();
+// }
