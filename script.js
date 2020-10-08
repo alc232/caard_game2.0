@@ -107,7 +107,6 @@ const resultDisplay = document.querySelector('#result');
 var cardsChosen = [];
 var cardsChosenId = [];
 var cardsWon = [];
-
 //  creating the game board
 function createBoard() {
     for (let i= 0; i < cardsArray.length; i++) {
