@@ -150,6 +150,8 @@ if (optionOneId == optionTwoId) {
     alert('Well Done, you found a match!!!');
     cards[optionOneId].setAttribute('src', 'batman-comp-logo.jpg');
     cards[optionTwoId].setAttribute('src', 'batman-comp-logo.jpg');
+    cards[optionOneId].removeEventListener('click', flipCard);
+    cards[optionTwoId].removeEventListener('click', flipCard);    
     cardsWon.push(cardsChosen);
 } 
 else {
