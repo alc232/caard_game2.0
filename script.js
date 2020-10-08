@@ -100,7 +100,7 @@ const cardsArray = [
 ];
 
 //  random card sort
-cardsArray.sort(() => 0.5 Math.random());
+cardsArray.sort(() => 0.5 - Math.random());
 
 const game = document.querySelector('.game');
 const resultDisplay = document.querySelector('#result');
@@ -114,7 +114,7 @@ function createBoard() {
         var card = document.createElement('img');
         card.setAttribute('src', 'images/bat-logo.jpg');
         card.setAttribute('data-id', i);
-        card.addEventListener('click', flipcard);
+        card.addEventListener('click', flipCard);
         game.appendChild(card);
     }
 }
@@ -131,6 +131,39 @@ function flipCard() {
         setTimeout(checkForMatch, 1000);
     }
 }
+
+//  adding the check for match function 
+
+function checkForMatch() {
+    var cards = document.querySelectorAll('img');
+    const optionOneId = cardsChosen[0];
+    const optionTwoId = cardsChosen[1];
+
+// check match here
+
+if (optionOneId == optionTwoId) {
+    cards[optionOneId].setAttribute('src', 'images/bat-logo.jpg');
+    cards[optionTwoId].setAttribute('src', 'images/bat-logo.jpg');
+    alert('Please choose another card!');
+}
+ else if (cardsChosen[0] === cardsChosen[1]) {
+    alert('Well Done, you found a match!!!');
+    cards[optionOneId].setAttribute('src', 'batman-comp-logo.jpg');
+    cards[optionTwoId].setAttribute('src', 'batman-comp-logo.jpg');
+    cardsWon.push(cardsChosen);
+} 
+else {
+    cards[optionOneId].setAttribute('src', 'bat-logo.jpg');
+    cards[optionTwoId].setAttribute('src', 'bat-logo.jpg');
+}
+cardsChosen = [];
+cardsChosenId = [];
+resultDisplay.textContent = cardsWon.length;
+if (cardsWon.length === cardsArray.length/2) {
+    resultDisplay.textContent = 'Congratulations!';
+}
+}
+
 
 
 createBoard();
