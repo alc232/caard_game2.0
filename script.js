@@ -99,12 +99,16 @@ const cardsArray = [
   }
 ];
 
+//  random card sort
+cardsArray.sort(() => 0.5 Math.random());
+
 const game = document.querySelector('.game');
 const resultDisplay = document.querySelector('#result');
 var cardsChosen = [];
 var cardsChosenId = [];
 var cardsWon = [];
 
+//  creating the game board
 function createBoard() {
     for (let i= 0; i < cardsArray.length; i++) {
         var card = document.createElement('img');
@@ -114,6 +118,20 @@ function createBoard() {
         game.appendChild(card);
     }
 }
+
+//  creating the flip function
+
+function flipCard() {
+    var cardId = this.getAttribute('data-id');
+    cardsChosen.push(cardsArray[cardId].name);
+    cardsChosenId.push(cardId);
+    this.setAttribute('src', cardsArray[cardId].img);
+    //  if correct check for match
+    if (cardsChosen.length === 2) {
+        setTimeout(checkForMatch, 1000);
+    }
+}
+
 
 createBoard();
 });
