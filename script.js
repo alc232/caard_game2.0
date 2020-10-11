@@ -123,12 +123,12 @@ function createBoard() {
 
 function checkForMatch() {
     var cards = document.querySelectorAll('img');
-    const optionOneId = cardsChosen[0];
-    const optionTwoId = cardsChosen[1];
+    const optionOneId = cardsChosenId[0];
+    const optionTwoId = cardsChosenId[1];
 
 // check match here
 
-if (optionOneId == optionTwoId) {
+if (optionOneId === optionTwoId) {
     cards[optionOneId].setAttribute('src', 'images/bat-logo.jpg');
     cards[optionTwoId].setAttribute('src', 'images/bat-logo.jpg');
     alert('Please choose another card!');
