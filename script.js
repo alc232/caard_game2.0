@@ -100,7 +100,7 @@ const cardsArray = [
 ];
 
 //  random card sort
-cardsArray.sort(() => 0.5 - Math.random());
+cardsArray.sort(function(a, b){return 0.5 - Math.random()});
 
 const game = document.querySelector('.game');
 const resultDisplay = document.querySelector('#result');
@@ -116,19 +116,6 @@ function createBoard() {
         card.setAttribute('data-id', i);
         card.addEventListener('click', flipCard);
         game.appendChild(card);
-    }
-}
-
-//  creating the flip function
-
-function flipCard() {
-    var cardId = this.getAttribute('data-id');
-    cardsChosen.push(cardsArray[cardId].name);
-    cardsChosenId.push(cardId);
-    this.setAttribute('src', cardsArray[cardId].img);
-    //  if correct check for match
-    if (cardsChosen.length === 2) {
-        setTimeout(checkForMatch, 1000);
     }
 }
 
@@ -164,6 +151,19 @@ resultDisplay.textContent = cardsWon.length;
 if (cardsWon.length === cardsArray.length/2) {
     resultDisplay.textContent = 'Congratulations!';
 }
+}
+
+//  creating the flip function
+
+function flipCard() {
+    var cardId = this.getAttribute('data-id');
+    cardsChosen.push(cardsArray[cardId].name);
+    cardsChosenId.push(cardId);
+    this.setAttribute('src', cardsArray[cardId].img);
+    //  if correct check for match
+    if (cardsChosen.length === 2) {
+        setTimeout(checkForMatch, 1000);
+    }
 }
 
 
