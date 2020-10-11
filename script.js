@@ -100,7 +100,7 @@ const cardsArray = [
 ];
 
 //  random card sort
-cardsArray.sort(function(a, b){return 0.5 - Math.random()});
+cardsArray.sort(() => 0.5 - Math.random());
 
 const game = document.querySelector('.game');
 const resultDisplay = document.querySelector('#result');
@@ -135,15 +135,15 @@ if (optionOneId === optionTwoId) {
 }
  else if (cardsChosen[0] === cardsChosen[1]) {
     alert('Well Done, you found a match!!!');
-    cards[optionOneId].setAttribute('src', 'batman-comp-logo.jpg');
-    cards[optionTwoId].setAttribute('src', 'batman-comp-logo.jpg');
+    // cards[optionOneId].setAttribute('src', 'batman-comp-logo.jpg');
+    // cards[optionTwoId].setAttribute('src', 'batman-comp-logo.jpg');
     cards[optionOneId].removeEventListener('click', flipCard);
     cards[optionTwoId].removeEventListener('click', flipCard);    
     cardsWon.push(cardsChosen);
 } 
 else {
-    cards[optionOneId].setAttribute('src', 'bat-logo.jpg');
-    cards[optionTwoId].setAttribute('src', 'bat-logo.jpg');
+    cards[optionOneId].setAttribute('src', 'images/bat-logo.jpg');
+    cards[optionTwoId].setAttribute('src', 'images/bat-logo.jpg');
 }
 cardsChosen = [];
 cardsChosenId = [];
