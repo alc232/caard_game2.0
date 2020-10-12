@@ -114,6 +114,7 @@ function createBoard() {
         var card = document.createElement('img');
         card.setAttribute('src', 'images/bat-logo.jpg');
         card.setAttribute('data-id', i);
+        card.setAttribute('style', 'width:125px', 'height:165px');
         card.addEventListener('click', flipCard);
         game.appendChild(card);
     }
@@ -134,7 +135,6 @@ if (optionOneId === optionTwoId) {
     alert('Please choose another card!');
 }
  else if (cardsChosen[0] === cardsChosen[1]) {
-    alert('Well Done, you found a match!!!');
     // cards[optionOneId].setAttribute('src', 'batman-comp-logo.jpg');
     // cards[optionTwoId].setAttribute('src', 'batman-comp-logo.jpg');
     cards[optionOneId].removeEventListener('click', flipCard);
@@ -149,7 +149,7 @@ cardsChosen = [];
 cardsChosenId = [];
 resultDisplay.textContent = cardsWon.length;
 if (cardsWon.length === cardsArray.length/2) {
-    resultDisplay.textContent = 'Congratulations!';
+    alert(resultDisplay.textContent = 'Congratulations!');
 }
 }
 
