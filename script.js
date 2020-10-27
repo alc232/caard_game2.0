@@ -21,10 +21,7 @@ const cardsArray = [
     name: "riddler",
     img: "images/riddler-img.png",
   },
-  {
-    name: "riddler",
-    img: "images/riddler-img.png",
-  },
+ 
   {
     name: "joker",
     img: "images/joker-img.jpg",
@@ -49,14 +46,7 @@ const cardsArray = [
     name: "freeze",
     img: "images/freeze-img.png",
   },
-  {
-    name: "catwoman",
-    img: "images/catwoman-img.png",
-  },
-  {
-    name: "catwoman",
-    img: "images/catwoman-img.png",
-  },
+ 
   {
     name: "ivy",
     img: "images/ivy-img.jpg",
@@ -120,6 +110,43 @@ function createBoard() {
     }
 }
 
+// adding the timer function
+(function () {
+  var timeContainer = document.getElementById("timer-value");
+  var startButton = document.getElementById("start-game");
+  var timer = 0;
+  var maxTime = 60;
+  var timeout = null;
+  function count () {
+    timeout = setTimeout(function () {
+      if (timer < maxTime) {
+        timer++;
+        timeContainer.innerText = timer;
+        count();
+      }
+      else {
+        alert("Time's up!");
+        startButton.style.display = "inline-block";
+      }
+    }, 1000);
+  }
+  function endGame () {
+    clearTimeout(timeout);
+    startButton.style.display = "inline-block";
+    alert("You completed the game in time!");
+  }
+  function startGame () {
+    if (timeout) { clearTimeout(timeout); }
+    timer = 0;
+    timeContainer.innerText = timer;
+    this.style.display = "none";
+    count();
+  }
+  document.getElementById("start-game").addEventListener("click", startGame);
+  document.getElementById("end-game").addEventListener("click", endGame);
+})();
+
+
 //  adding the check for match function 
 
 function checkForMatch() {
@@ -135,8 +162,6 @@ if (optionOneId === optionTwoId) {
     alert('Please choose another card!');
 }
  else if (cardsChosen[0] === cardsChosen[1]) {
-    // cards[optionOneId].setAttribute('src', 'batman-comp-logo.jpg');
-    // cards[optionTwoId].setAttribute('src', 'batman-comp-logo.jpg');
     cards[optionOneId].removeEventListener('click', flipCard);
     cards[optionTwoId].removeEventListener('click', flipCard);    
     cardsWon.push(cardsChosen);
@@ -165,8 +190,18 @@ function flipCard() {
         setTimeout(checkForMatch, 1000);
     }
 }
+// adding the reset button
+function reset() {
+    var reset = this.getElementByClass('play-again');
 
+    
+}
 
+// Resets game state and toggles win modal display off
+var playAgain = function() {
+    document.removeEventListener('click', reset);
+  resetGame();
+};
 
 createBoard();
 });

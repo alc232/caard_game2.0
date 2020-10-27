@@ -1,35 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="urf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" 
+      crossorigin="anonymous"
+    ></script>
 
-<head>
-	<meta charset="urf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-	</script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
-	</script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
-	</script>
+    <title>Memory Game</title>
 
-	<title>Memory Game</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
 
-	<link rel="stylesheet" href="assets/css/style.css" />
-</head>
+  <body>
+    <h1 id="lead">Memory Game</h1>
+    <!-- result of user clicks/ to update and change -->
+    <h3 id="result">0</h3>
 
-<body>
-<h1 id="lead">Memory Game</h1>
-<h3 id="result">0 </h3>
-<button class="victory-btn">Replay</button>
+    <!-- countdown clock -->
+
+    <h3>Timer : <span id="timer-value"> 0</span></h3>
+<button id="start-game">Start Game</button> <button id="end-game">End Game</button>
+
+    <!-- button to reset the game -->
+    <button class="play-again" onclick="reset()">Play Again</button>
+
+    <div class="game"></div>
 
 
-	<div class="game">
-	</div>
-
-	<script src="script.js"></script>
-</body>
-
+    <footer class="page-footer font-small blue pt-4">
+      <!-- Footer Links -->
+      <div class="container-fluid text-center text-md-left">
+        <!-- Grid row -->
+        <div class="row">
+          <!-- Grid column -->
+          <div class="col-md-6 mt-md-0 mt-3">
+            <!-- Content -->
+            <div class="col-md-8">
+              <form>
+                <h6>SUBSCRIBE FOR MORE GAMES</h6>
+                <div class="input-group">
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Enter your email"
+                  />
+                  <span class="input-group-btn">
+                    <button
+                      class="btn btn-primary btn-small no-border-radius"
+                      type="submit"
+                    >
+                      Subscribe Now
+                    </button>
+                  </span>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
 </html>
