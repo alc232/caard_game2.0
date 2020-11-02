@@ -112,3 +112,17 @@ function flipCount() {
     let clickCounter = document.querySelector('#flip-counter');
     clickCounter.textContent = clickCounter;
 }
+
+function shuffleCards(array) {
+    let shuffledCards = array.length - 1,
+    temp, index;
+
+    while (shuffledCards > 0) {
+        index = Math.floor(Math.random() * shuffledCards);
+        shuffledCards--;
+
+        temp = array[shuffledCards];
+        array[shuffledCards] = array[index];
+        array[index] = temp;
+    }
+}
