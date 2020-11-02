@@ -58,119 +58,49 @@ cardsArray = [
 
 let gameCards = [...cardsArray, ...cardsArray],
 flipCount = 0,
+firstClick = 0,
+timeLeft,
 matchedCards = [],
 clickCounter = 50,
+timerId;
 
+ document.getElementById('resetBtn').addEventListener('click', resetGame, false);
 
-// //  random card sort
-// cardsArray.sort(() => 0.5 - Math.random());
+    //function from Stack Overflow
+    function gameTimer(duration, display) {
+        let timer = duration,
+            minutes, seconds;
 
-// const game = document.querySelector('.game');
-// const resultDisplay = document.querySelector('#result');
-// var cardsChosen = [];
-// var cardsChosenId = [];
-// var cardsWon = [];
+        timerId = setInterval(function() {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
 
-// //  creating the game board
-// function createBoard() {
-//     for (let i= 0; i < cardsArray.length; i++) {
-//         var card = document.createElement('img');
-//         card.setAttribute('src', 'images/bat-logo.jpg');
-//         card.setAttribute('data-id', i);
-//         card.setAttribute('style', 'width:125px', 'height:165px');
-//         card.addEventListener('click', flipCard);
-//         game.appendChild(card);
-//     }
-// }
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
 
-// // adding the timer function
-// (function () {
-//   var timeContainer = document.getElementById("timer-value");
-//   var startButton = document.getElementById("start-game");
-//   var timer = 0;
-//   var maxTime = 60;
-//   var timeout = null;
-//   function count () {
-//     timeout = setTimeout(function () {
-//       if (timer < maxTime) {
-//         timer++;
-//         timeContainer.innerText = timer;
-//         count();
-//       }
-//       else {
-//         alert("Time's up!");
-//         startButton.style.display = "inline-block";
-//       }
-//     }, 1000);
-//   }
-//   function endGame () {
-//     clearTimeout(timeout);
-//     startButton.style.display = "inline-block";
-//     alert("You completed the game in time!");
-//   }
-//   function startGame () {
-//     if (timeout) { clearTimeout(timeout); }
-//     timer = 0;
-//     timeContainer.innerText = timer;
-//     this.style.display = "none";
-//     count();
-//   }
-//   document.getElementById("start-game").addEventListener("click", startGame);
-//   document.getElementById("end-game").addEventListener("click", endGame);
-// })();
+            display.textContent = minutes + ':' + seconds;
 
+            if (timer-- <= 0) {
+                loseGame(timer);
+                timer = duration;
+                clearTimeout(timerId);
+            }
+            // stop timer if game is won
+            if (matchedCards.length === (gameCards.length / 2)) {
+                clearTimeout(timerId);
+            }
+        }, 1000);
+    }
 
-// //  adding the check for match function 
+//  starting the timer upon first click
 
-// function checkForMatch() {
-//     var cards = document.querySelectorAll('img');
-//     const optionOneId = cardsChosenId[0];
-//     const optionTwoId = cardsChosenId[1];
-
-// // check match here
-
-// if (optionOneId === optionTwoId) {
-//     cards[optionOneId].setAttribute('src', 'images/batman-com-logo.jpg');
-//     cards[optionTwoId].setAttribute('src', 'images/batman-com-logo.jpg');
-//     alert('Please choose another card!');
-// }
-//  else if (cardsChosen[0] === cardsChosen[1]) {
-//     cards[optionOneId].removeEventListener('click', flipCard);
-//     cards[optionTwoId].removeEventListener('click', flipCard);    
-//     cardsWon.push(cardsChosen);
-// } 
-// else {
-//     cards[optionOneId].setAttribute('src', 'images/bat-logo.jpg');
-//     cards[optionTwoId].setAttribute('src', 'images/bat-logo.jpg');
-// }
-// cardsChosen = [];
-// cardsChosenId = [];
-// resultDisplay.textContent = cardsWon.length;
-// if (cardsWon.length === cardsArray.length/2) {
-//     alert(resultDisplay.textContent = 'Congratulations!');
-// }
-// }
-
-// //  creating the flip function
-
-// function flipCard() {
-//     var cardId = this.getAttribute('data-id');
-//     cardsChosen.push(cardsArray[cardId].name);
-//     cardsChosenId.push(cardId);
-//     this.setAttribute('src', cardsArray[cardId].img);
-//     //  if correct check for match
-//     if (cardsChosen.length === 2) {
-//         setTimeout(checkForMatch, 1000);
-//     }
-// }
-// // adding the reset button
-
-
-// // Resets game state and toggles win modal display off
-// var playAgain = function() {
-//     document.removeEventListener('click', reset);
-//   resetGame();
-// };
-
-// createBoard();
-// });
+let game = document.querySelector('.board');
+game.onclick = (function() {
+    firstClick++;
+if(parseInt(firstClick) < 2) {
+game.removeAttribute('onclick');
+timeLeft = 25 * 2,
+display = document.querySelector('#timer');
+gameTimer(timeLeft, display);
+}
+});
