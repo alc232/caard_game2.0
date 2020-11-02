@@ -1,64 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="urf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" 
-      crossorigin="anonymous"
-    ></script>
 
-    <title>Memory Game</title>
+<head>
+	<meta charset="urf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+		integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+	</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+		integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+	</script>
 
-    <link rel="stylesheet" href="assets/css/style.css" />
-  </head>
+	<title>Memory Game</title>
 
-  <body>
-    <h1 id="lead">Memory Game</h1>
-    <!-- result of user clicks/ to update and change -->
-    <h3 id="result">0</h3>
+	<link rel="stylesheet" href="assets/css/style.css" />
+</head>
 
-    <!-- countdown clock -->
+<body>
 
-    <h3>Timer : <span id="timer-value"> 0</span></h3>
-<button id="start-game">Start Game</button> <button id="end-game">End Game</button>
+	<!-- result of user clicks/ to update and change -->
+	<div class="game-info-container">
+		<h1 id="lead">Memory Game</h1>
+		<div class="icon-container">
+			<div>
+				<button id="resetBtn3" class="restart-btn" aria-label="restart"><i class="fa fa-redo"></i></button>
+			</div>
+			<div>
+				<a class="home-btn" aria-label="home" href="index.html"><i class="fa fa-home"></i></a>
+			</div>
+		</div>
+		<div class="game-counter">
+			Flips: <span id="flip-counter"> 50</span>
+		</div>
+		<div class="game-timer">
+			Time: <span id="timer"> 00:00</span>
+		</div>
+	</div>
 
-    <!-- button to reset the game -->
-    <button class="play-again" onclick="reset()">Play Again</button>
+	<!--game board-->
+	<div id="grid" class="board">
+	</div>
 
-    <div class="game"></div>
+	<div class="game"></div>
 
 
-    <footer class="page-footer font-small blue pt-4">
-      <!-- Footer Links -->
-      <div class="container-fluid text-center text-md-left">
-        <!-- Grid row -->
-        <div class="row">
-          <!-- Grid column -->
-          <div class="col-md-6 mt-md-0 mt-3">
-            <!-- Content -->
-            <div class="col-md-8">
-              <form>
-                <h6>SUBSCRIBE FOR MORE GAMES</h6>
-                <div class="input-group">
-                  <input
+	<footer class="page-footer font-small blue pt-4">
+		<!-- Footer Links -->
+		<div class="container-fluid text-center text-md-left">
+			<!-- Grid row -->
+			<div class="row">
+				<!-- Grid column -->
+				<div class="col-md-6 mt-md-0 mt-3">
+					<!-- Content -->
+					<div class="col-md-8">
+						<form>
+							<h6>SUBSCRIBE FOR MORE GAMES</h6>
+							<div class="input-group">
+								<input
                     type="email"
                     class="form-control"
                     placeholder="Enter your email"
                   />
-                  <span class="input-group-btn">
+								<span class="input-group-btn">
                     <button
                       class="btn btn-primary btn-small no-border-radius"
                       type="submit"
@@ -66,13 +73,14 @@
                       Subscribe Now
                     </button>
                   </span>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <script src="script.js"></script>
-  </body>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<script src="script.js"></script>
+</body>
+
 </html>
