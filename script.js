@@ -86,7 +86,7 @@ timerId;
                 clearTimeout(timerId);
             }
             // stop timer if game is won
-            if (matchedCards.length === (gameCards.length / 2)) {
+            if (matchedCards.length === (cardsArray.length / 2)) {
                 clearTimeout(timerId);
             }
         }, 1000);
@@ -104,3 +104,11 @@ display = document.querySelector('#timer');
 gameTimer(timeLeft, display);
 }
 });
+
+// flip counter when we click cards
+
+function flipCount() {
+    clickCounter--;
+    let clickCounter = document.querySelector('#flip-counter');
+    clickCounter.textContent = clickCounter;
+}
