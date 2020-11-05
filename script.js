@@ -126,3 +126,74 @@ function shuffleCards(array) {
         array[index] = temp;
     }
 }
+
+//  game board creation 
+
+function createBoard(cardsArray) {
+    const grid = document.getElementById('grid');
+
+    let id = 1;
+    cardsArray.forEach(element => {
+        let card = document.createElement('img');
+        card.setAttribute('id', id);
+        card.setAttribute('src', 'images/bat-logo.jpg');
+        card.setAttribute('data-name', element.name);
+        card.setAttribute('data-path', element.img);
+        card.classList.add('card');
+        card.onclick = function() {
+            if(flipCount < 2) {
+                flipCard(this);
+                flipCount();
+            }
+        };
+        grid.appendChild(card);
+        id++;
+    });
+}
+shuffleCards(cardsArray);
+createBoard(cardsArray);
+
+
+function disableCards(card) {
+    card.classList.add('disable-card');
+    card.src = card.getAttribute('data-path');
+}   
+// flip cards
+function flipCard(card) {
+    card.classList.add('flip', 'card-front', 'card-back', 'disable-card');
+    card.src = card.getAttribute('dta-path');
+    setTimeout(checkForMatch(card), 500);
+}
+
+// check if cards match
+
+function checkForMatch(card) {
+    card.src = card.getAttribute('data-path');
+    let cardName = card.getAttribute('data-name');
+
+    let currentImgId = card.getAttribute('id');
+    flipCount++;
+    if(parseInt(flipCount) === 1) {
+        disableCards(card);
+        currentName = cardName;
+        previousImgId = card.getAttribute('id');
+        return;
+    } else if (flipCount === maxFlip && cardName !== currentName) {
+        timeoutId = window.setTimeout(function() {
+            unFlip(previousImgId, currentImgId);
+            flipCount = 0;
+            currentName = '';
+        }, 2000);
+    }
+
+    if(matchedCards.length === (cardsArray.length / 2) && clickCounter > 0) {
+        document.getElementsByClassName('win-overlay')[0].getElementsByClassName.display = 'block';
+    }
+}
+
+
+
+
+
+
+})
