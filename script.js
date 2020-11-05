@@ -191,6 +191,22 @@ function checkForMatch(card) {
     }
 }
 
+function unFlip(PreviousCard, CurrentCard) {
+    let previousCard = document.querySelectorAll(`[id='${PreviousCard}']`)[0];
+    let currentCard = document.querySelectorAll(`[id='${CurrentCard}']`)[0];   
+    
+    previousCard.classList.remove('card-back', 'card-front', 'flip', 'disable-card');
+    currentCard.classList.remove('card-back', 'card-front', 'flip', 'disable-card');
+
+    currentCard.setAttribute('data-name', currentCard.getAttribute('data-name'));
+    currentCard.setAttribute('data-path', currentCard.src);
+    currentCard.setAttribute('src', defaultImage);
+
+    previousCard.setAttribute('data-name', previousCard.getAttribute('data-name'));
+    previousCard.setAttribute('data-path', previousCard.src);
+    previousCard.setAttribute('src', defaultImage);
+}
+
 
 
 
