@@ -207,6 +207,32 @@ function unFlip(PreviousCard, CurrentCard) {
     previousCard.setAttribute('src', defaultImage);
 }
 
+// reset board with button click
+
+function resetGame() {
+    document.getElementsByClassName('win-overlay')[0].style.display = 'none';
+    document.getElementsByClassName('lose-overlay')[0].style.display = 'none';
+
+    flipCount = 0;
+    currentName = '';
+    clickCounter = 50;
+    previousImgId = 0;
+    matchedCards = [];
+    timeLeft = 0;
+    firstClick = 0;
+
+    let node = document.getElementById('grid');
+    node.innerHTML = '';
+
+    shuffleCards(cardsArray);
+    createBoard(cardsArray);
+
+    let clickCount = document.querySelector('#flip-counter');
+    clickCount.textContent = 50;
+    let timer = document.querySelector('#timer');
+    timer.textContent = '00:00';
+    clearInterval(timerId);
+}
 
 
 
