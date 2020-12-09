@@ -5,12 +5,12 @@ maxFlip = 2,
 cardsArray = [
   {
     name: "batman",
-    img: "images/batman-img.png",
+    img: "/assets/images/batman-img.png",
   },
   
   {
     name: "bane",
-    img: "images/bane-img.jpg",
+    img: "assets/images/bane-img.jpg",
   },
  
   {
@@ -129,11 +129,11 @@ function shuffleCards(array) {
 
 //  game board creation 
 
-function createBoard(cardsArray) {
+function createBoard(gameCards) {
     const grid = document.getElementById('grid');
 
     let id = 1;
-    cardsArray.forEach(element => {
+    gameCards.forEach(element => {
         let card = document.createElement('img');
         card.setAttribute('id', id);
         card.setAttribute('src', 'images/bat-logo.jpg');
@@ -150,8 +150,8 @@ function createBoard(cardsArray) {
         id++;
     });
 }
-shuffleCards(cardsArray);
-createBoard(cardsArray);
+shuffleCards(gameCards);
+createBoard(gameCards);
 
 
 function disableCards(card) {
@@ -224,8 +224,8 @@ function resetGame() {
     let node = document.getElementById('grid');
     node.innerHTML = '';
 
-    shuffleCards(cardsArray);
-    createBoard(cardsArray);
+    shuffleCards(gameCards);
+    createBoard(gameCards);
 
     let clickCount = document.querySelector('#flip-counter');
     clickCount.textContent = 50;

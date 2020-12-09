@@ -22,6 +22,9 @@ The game was designed to be challenging fun and interactive to people of all age
 
 The game will have features added in the future, a victory page, loss page and a scoreboard page that will feature the time that the user can complete the game in, this will be logged on a scoreboard.
 
+
+# 
+
 Audio will also be added to add a better experience in the future!
 
 ## Languages and Technologies
@@ -33,3 +36,6 @@ Audio will also be added to add a better experience in the future!
 ### Javascript
 
 
+# Acknowledgements
+
+I would like to thank my mentor [Felipe Alarcon](https://github.com/felipe-alarcon) for the patience and willing to try and help. Also I would like to thank everyone at code institute. 
