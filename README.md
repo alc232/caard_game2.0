@@ -1,39 +1,35 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+# Caard Game
 
-Welcome alc232,
+## Desciption
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
+This is a flip card game designed to entertain and challenge all users of the game. This game is open for anyone to play.
 
-## Gitpod Reminders
+## User Stories
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+As a user I want :
 
-`python3 -m http.server`
+- To play a memory game.
+- To easily understand how to navigate correctly.
+- Interact with the website.
+- To be simple and and easy to understand.
+- To be able to play on any device.
 
-A blue button should appear to click: *Make Public*,
+## Design 
 
-Another blue button should appear to click: *Open Browser*.
+The game was designed to be challenging fun and interactive to people of all ages.  The game is of the theme of popular DC charachters. The game has a timer feature that will count up until the game is completed. There is a flip counter function that will count the amount of moves that the user makes. 
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## Features To be added
 
-A blue button should appear to click: *Make Public*,
+The game will have features added in the future, a victory page, loss page and a scoreboard page that will feature the time that the user can complete the game in, this will be logged on a scoreboard.
 
-Another blue button should appear to click: *Open Browser*.
+Audio will also be added to add a better experience in the future!
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the backend lessons.
+## Languages and Technologies
 
-## Updates Since The Instructional Video
+### HTML
 
-We continually tweak and adjust this template to help give you the best experience. Here are the updates since the original video was made:
+### CSS 
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+### Javascript
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
---------
-
-Happy coding!
